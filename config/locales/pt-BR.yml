@@ -23,6 +23,7 @@ pt-BR:
           attributes:
             value:
               blank: "não pode ser vazio"
+              greater_than: "deve ser maior que %{value}"
             imei:
               blank: "não pode ser vazio"
             device:
