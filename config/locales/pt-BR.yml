@@ -1,11 +1,47 @@
 pt-BR:
   activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved 666"
+          other: "%{count} erros impediram %{model} from being saved 666"
+        body:    "There were problems with the following fields: 666"
+      models:
+        user: 
+          attributes:
+            email:
+              blank: "não pode ser vazio"
+              taken: "em uso"
+            name:
+              blank: "não pode ser vazio"
+            cpf:
+              blank: "não pode ser vazio"
+              taken: "em uso"
+        order:
+          attributes:
+            value:
+              blank: "não pode ser vazio"
+            imei:
+              blank: "não pode ser vazio"
+            device:
+              blank: "não pode ser vazio"
+    models:
+      user: "Usuário"
+      order:
+        one: "Assinatura"
+        other: "Assinaturas"
     attributes:
       user:
+        one: Usuário
         name: Nome
         cpf: CPF
         email: E-mail
       order:
+        device: Modelo do aparelho
+        imei: IMEI
+        value: Valor anual
+        installments: Qtd parcelas
+      orders:
         device: Modelo do aparelho
         imei: IMEI
         value: Valor anual
