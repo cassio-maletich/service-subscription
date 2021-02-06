@@ -1,0 +1,20 @@
+<div class="border p-3 mb-3">
+    <h5>Seguro</h5>
+    <%= f.hidden_field :id %>
+    <div class="form-group">
+        <%= f.label :device %>
+        <%= f.text_field :device, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :imei %>
+        <%= f.text_field :imei, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :value %>
+        <%= f.text_field :value, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :installments %>
+        <%= f.number_field :installments, class: "form-control" %>
+    </div>
+</div>

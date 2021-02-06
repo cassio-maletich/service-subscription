@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @order = @user.orders.build
   end
 
   # GET /users/1/edit
@@ -64,6 +65,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :cpf, :email, orders_attributes: [:device, :imei, :value, :installments])
+      params.require(:user).permit(:name, :cpf, :email, orders_attributes: [:id, :device, :imei, :value, :installments])
     end
 end
