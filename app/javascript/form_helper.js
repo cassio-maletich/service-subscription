@@ -6,4 +6,10 @@ $(document).on('turbolinks:load', function () {
         $('#orders-wrapper').append($(this).data('fields').replace(regexp, time));
         return event.preventDefault();
     });
+
+    $('form').on('click', '.remove_order', function (event) {
+        $(this).prev('input[type=hidden]').val('1');
+        $(this).closest('.border').hide();
+        return event.preventDefault();
+    });
 });
