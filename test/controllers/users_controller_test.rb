@@ -75,6 +75,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_url(@user)
   end
 
+  test "should update user - destroy order" do
+    order = @user.orders.first
+    assert_no_difference('Order.count', -1) do
+      patch user_url(@user), params: { user: { orders_attributes: [{ id: order.id, _destroy: '1' }] } }
+    end
+  end
+
   test "should destroy user" do
     assert_difference('User.count', -1) do
       delete user_url(@user)
