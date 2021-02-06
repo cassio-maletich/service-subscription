@@ -2,8 +2,8 @@
 
 <h1>Usuários</h1>
 
-<table>
-  <thead>
+<table class="table table-responsive table-striped">
+  <thead class="thead-dark">
     <tr>
       <th>Nome</th>
       <th>CPF</th>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'Novo usuário', new_user_path %>
+<%= link_to 'Novo usuário', new_user_path, class: "btn btn-primary" %>
