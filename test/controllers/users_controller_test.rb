@@ -23,6 +23,30 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_url(User.last)
   end
 
+  test "should create user & order" do
+    assert_difference -> { User.count } => 1, -> { Order.count } => 1 do
+      post users_url, params: { user: { cpf: "00011100066", email: "test@mail.com", name: @user.name, orders_attributes: [{ value: 100, imei: "798789789798", device: "Redmi Note 8" }] } }
+    end
+
+    assert_redirected_to user_url(User.last)
+  end
+
+  test "shouldnt create invalid user" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { email: "test@mail.com", name: @user.name } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  test "shouldnt create user - invalid nested order" do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { cpf: "00011100066", email: "test@mail.com", name: @user.name, orders_attributes: [{ imei: "798789789798", device: "Redmi Note 8" }] } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
   test "should show user" do
     get user_url(@user)
     assert_response :success
