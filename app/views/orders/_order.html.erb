@@ -1,0 +1,19 @@
+<%= content_tag :div, { id: dom_id(order), class: "order border p-3 m-0" } do %>
+    <h5>Assinatura <%= order.id %></h5>
+    <p>
+        <strong>Dispositivo:</strong>
+        <%= order.device %>
+    </p>
+    <p>
+        <strong>Imei:</strong>
+        <%= order.imei %>
+    </p>
+    <p>
+        <strong>Valor:</strong>
+        <%= order.formatted_value %>
+    </p>
+    <p>
+        <strong>Parcelas:</strong>
+        <%= order.installments %>
+    </p>
+<% end %>

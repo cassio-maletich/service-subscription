@@ -24,10 +24,16 @@ pt-BR:
             value:
               blank: "não pode ser vazio"
               greater_than: "deve ser maior que %{value}"
+              not_a_number: "deve ser um número"
             imei:
               blank: "não pode ser vazio"
             device:
               blank: "não pode ser vazio"
+            installments:
+              greater_than: "deve ser maior que %{value}"
+              less_than_or_equal_to: "deve ser menor ou igual a 12"
+              blank: "não pode ser vazio"
+              not_a_number: "deve ser um número"
     models:
       user: "Usuário"
       order:
@@ -43,9 +49,5 @@ pt-BR:
         device: Modelo do aparelho
         imei: IMEI
         value: Valor anual
-        installments: Qtd parcelas
-      orders:
-        device: Modelo do aparelho
-        imei: IMEI
-        value: Valor anual
-        installments: Qtd parcelas
+        installments: Quantidade de parcelas
+        

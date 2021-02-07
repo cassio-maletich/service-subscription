@@ -3,4 +3,8 @@ class Order < ApplicationRecord
 
   validates_presence_of :imei, :device
   validates :value, presence: true, numericality: { greater_than: 0 }
+
+  def formatted_value
+    ActiveSupport::NumberHelper.number_to_currency(value, unit: "R$ ", delimiter: ".", separator: "," )
+  end
 end
