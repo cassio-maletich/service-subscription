@@ -6,7 +6,7 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test "valid order" do
-    order = Order.new(value: 100, imei: "798789789798", device: "Redmi Note 8", user: @user)
+    order = Order.new(value: 100, imei: "798789789798", device: "Redmi Note 8", installments: 1, user: @user)
     assert order.valid?
   end
 
@@ -14,6 +14,7 @@ class OrderTest < ActiveSupport::TestCase
     order = Order.new(imei: "798789789798", device: "Redmi Note 8", user: @user)
     assert_not order.valid?
     assert_not_empty order.errors["value"]
+    assert_not_empty order.errors["installments"]
   end
 
   test "invalid order - missing imei" do

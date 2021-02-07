@@ -25,7 +25,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user & order" do
     assert_difference -> { User.count } => 1, -> { Order.count } => 1 do
-      post users_url, params: { user: { cpf: "00011100066", email: "test@mail.com", name: @user.name, orders_attributes: [{ value: 100, imei: "798789789798", device: "Redmi Note 8" }] } }
+      post users_url, params: { user: { cpf: "00011100066", email: "test@mail.com", name: @user.name, orders_attributes: [{ value: 100, imei: "798789789798", device: "Redmi Note 8", installments: 1 }] } }
     end
 
     assert_redirected_to user_url(User.last)
@@ -35,8 +35,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference -> { User.count } => 1, -> { Order.count } => 2 do
       post users_url, params: { user: { cpf: "00011100066", email: "test@mail.com", name: @user.name, 
         orders_attributes: [
-          { value: 100, imei: "798789789798", device: "Redmi Note 8" },
-          { value: 300, imei: "123123123354", device: "Samsung Galaxy 11" }
+          { value: 100, installments: 1, imei: "798789789798", device: "Redmi Note 8" },
+          { value: 300, installments: 11, imei: "123123123354", device: "Samsung Galaxy 11" }
         ] 
       } }
     end
