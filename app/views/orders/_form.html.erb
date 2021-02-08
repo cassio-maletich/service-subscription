@@ -2,7 +2,7 @@
     <div class="d-flex">
         <h5>Assinatura <%= f.object.id unless f.object.new_record? %></h5>
         <%= f.hidden_field :_destroy %>
-        <%= link_to '&times;'.html_safe, '#', class: 'btn btn-white ml-auto remove_order' %>
+        <%= link_to '&times;'.html_safe, '#', class: 'btn btn-outline-danger ml-auto remove_order' %>
     </div>
     <%= f.hidden_field :id %>
     <%= f.input :device %>
