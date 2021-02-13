@@ -2,31 +2,35 @@
 
 <h1>Usuários</h1>
 
-<table class="table table-responsive table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>Nome</th>
-      <th>CPF</th>
-      <th>E-mail</th>
-      <th># Assinaturas</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+<% if @users.empty? %>
+  <p class="pt-3">Sem usuários cadastrados</p>
+<% else %>
+  <table class="table table-responsive table-striped">
+    <thead class="thead-dark">
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.cpf %></td>
-        <td><%= user.email %></td>
-        <td><%= user.orders.count %></td>
-        <td><%= link_to 'Ver', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Remover', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th># Assinaturas</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.cpf %></td>
+          <td><%= user.email %></td>
+          <td><%= user.orders.count %></td>
+          <td><%= link_to 'Ver', user %></td>
+          <td><%= link_to 'Editar', edit_user_path(user) %></td>
+          <td><%= link_to 'Remover', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <br>
 
